@@ -6,6 +6,6 @@ const publicationController = require('./controllers/publicationController');
 
 router.use(homeController);
 router.use('/auth', authController);
-router.use('/publication', publicationController);
+router.use('/publications', publicationController);
 
 module.exports = router;
