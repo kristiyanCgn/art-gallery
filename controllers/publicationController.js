@@ -21,13 +21,13 @@ router.get('/:publicationId/details', async (req, res) => {
    res.render('publication/details', { ...publication, isAuthor, isShared });
 });
 
-router.get('/publicationId/edit', isAuth, preloadPublication, async (req, res) => {
+router.get('/:publicationId/edit', isAuth, preloadPublication, async (req, res) => {
    const publication = await publicationService.getOne(req.params.publicationId).lean();
    
    res.render('publication/edit', { ...publication });
 });
 
-router.post('/publicationId/edit', isAuth, preloadPublication, async (req, res) => {
+router.post('/:publicationId/edit', isAuth, preloadPublication, async (req, res) => {
    try {
         await publicationService.update(req.params.publicationId, req.body);
 
