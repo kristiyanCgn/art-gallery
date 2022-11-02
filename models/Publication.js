@@ -20,7 +20,7 @@ const publicationSchema = new mongoose.Schema({
             validator(value) {
                 return URL_PATTERN.test(value);
             },
-            message: 'Car image must be a valid URL!'
+            message: 'Image must be a valid URL!'
         },
     },
     certificate: {

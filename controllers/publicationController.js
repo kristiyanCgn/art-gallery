@@ -51,7 +51,8 @@ router.get('/create', isAuth, (req, res) => {
 
 router.post('/create', isAuth, async (req, res) => {
    try {
-        await publicationService.create({...req.body, author: req.user._id });
+        const createdPublication = await publicationService.create({...req.body, author: req.user._id });
+        await userService.addPublication(req.user._id, createdPublication._id)
 
         res.redirect('/publications');
    } catch (error) {
