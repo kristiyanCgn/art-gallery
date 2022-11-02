@@ -12,11 +12,11 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/profile', async (req, res) => {
-   const user = await userService.getOne(req.params._id).populate('publications').populate('shares').lean();
-   const publicationTitles = user.publications.map(x => x.title).join(', ');
-   const sharedTitles = user.shares.map(x => x.title).join(', ');
+    const user = await userService.getOne(req.user._id).populate('publications').populate('shares').lean();
+    const publicationTitles = user.publications.map(x => x.title).join(', ');
+    const sharedTitles = user.shares.map(x => x.title).join(', ');
 
-   res.render('home/profile', { ...user, publicationTitles, sharedTitles });
+    res.render('home/profile', { ...user, publicationTitles, sharedTitles });
 });
 
 module.exports = router;
