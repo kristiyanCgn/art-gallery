@@ -73,7 +73,7 @@ router.get('/:publicationId/share', isAuth, async (req, res) => {
     }
 
     publication.usersShared.push(req.user._id);
-    user.publications.push(publication);
+    user.shares.push(publication);
 
     await publication.save();
     await user.save();

@@ -13,8 +13,9 @@ exports.login = async (username, password) => {
     if (!user) {
         throw { message: 'Cannot find username or password!'};
     }
-
+   
     const isValid = await bcrypt.compare(password, user.password);
+    
 
     if (!isValid) {
         throw { message: 'Cannot find username or password!'};

@@ -24,7 +24,7 @@ router.post('/login', isGuest, async (req, res) => {
         res.redirect('/');
 
     } catch(error) {
-        return res.redirect('auth/login', { error: getErrorMessage(error) });
+        return res.render('auth/login', { error: getErrorMessage(error) });
     }
 });
 
@@ -47,7 +47,7 @@ router.post('/register', isGuest, async (req, res) => {
         res.redirect('/');
 
     } catch(error) {
-        return res.redirect('auth/register', { error: getErrorMessage(error) });
+        return res.render('auth/register', { error: getErrorMessage(error) });
     }
 });
 
